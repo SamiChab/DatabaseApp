@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, FlatList, Text, TouchableOpacity, Button, Alert } from 'react-native';
+import { View, FlatList, Text, TouchableOpacity, TouchableHighlight, Button, Alert } from 'react-native';
+import Modal from 'react-native-modal'
 import { connect } from 'react-redux';
 import I18n from 'react-native-i18n';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -13,6 +14,7 @@ class Tab2 extends Component {
 
 	state = {
 		refreshing: false,
+		modalVisible: false,
 		notes: []
 	}
 
@@ -45,27 +47,46 @@ class Tab2 extends Component {
 		return (
 			<TouchableOpacity
 				style={styles.item}
+				underlayColor='gray'
 				onPress={() => this.props.navigation.navigate(
 					'note',
 					{ new: false, note: item, refresh: () => { this.reloadNotes(); } }
 				)}
+				onLongPress={() => this.setState({ modalVisible: true })}
 			>
-				<View style={{ flexDirection: "row", justifyContent: "space-between", }}>
-					<Text style={styles.itemTitle}
-					numberOfLines={1}
+				<View style={{ flexDirection: "column", flex: 1 }}>
+					<View style={{ flexDirection: "row", justifyContent: "space-between", }}>
+						<Text style={styles.itemTitle}
+						numberOfLines={1}
+						>
+							{item.title}
+						</Text>
+						<Text style={styles.itemDate}>
+							{this.getDate(item.date)}
+						</Text>
+					</View>
+					<Text
+						style={styles.itemBody}
+						numberOfLines={1}
 					>
-						{item.title}
+						{item.body}
 					</Text>
-					<Text style={styles.itemDate}>
-						{this.getDate(item.date)}
-					</Text>
-				</View>
-				<Text
-					style={styles.itemBody}
-					numberOfLines={1}
+				</View>	
+				<Modal
+					isVisible={this.state.modalVisible}
+					onBackdropPress={() => this.setState({ modalVisible: false })}
 				>
-					{item.body}
-				</Text>
+					<View style={{ backgroundColor: 'white', borderRadius: 3, padding: 5 }}>
+						<TouchableOpacity
+							onPress={() => console.log('delete')}
+						>
+							<Text style={styles.modalText}>Supprimer</Text>
+						</TouchableOpacity>
+						<TouchableOpacity>
+							<Text style={styles.modalText}>Archiver</Text>
+						</TouchableOpacity>
+					</View>
+				</Modal>			
 			</TouchableOpacity>
 		);
 	}
@@ -190,6 +211,10 @@ const styles = {
 		shadowOpacity: 0.5,
 		shadowOffset: { width: 1,  height: 1 },
 		elevation: 5 
+	},
+	modalText: {
+		margin: 10,
+		fontSize: 20
 	}
 }
 
