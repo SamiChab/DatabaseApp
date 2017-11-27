@@ -19,6 +19,9 @@ export const USER_DELETED = 'user_deleted';
 export const USER_DELETE_AFTER_LOGIN = 'user_delete_after_login';
 export const CLEAR_ERROR = 'clear_error';
 
+// Notes
+export const SET_NOTES = 'set_notes';
+
 // Paramètres
 export const LANGUAGE_CHANGED = 'language_changed';
 export const WELCOME_FINISHED = 'welcome_finished';

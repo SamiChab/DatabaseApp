@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, FlatList, Text, TouchableOpacity, Button } from 'react-native';
+import { View, FlatList, Text, TouchableOpacity, Button, Alert } from 'react-native';
 import { connect } from 'react-redux';
 import I18n from 'react-native-i18n';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -38,6 +38,7 @@ class Tab2 extends Component {
 		// const serveur = 'http://localhost:5000';
 		// const URL = serveur.concat('/get/notes');
 		this.reloadNotes();
+		this.setState({ notes: this.props.note.notes });
 	}
 
 	renderItem ({item}) {
@@ -79,10 +80,12 @@ class Tab2 extends Component {
 		axios.get('http://localhost:5000/get/notes')
 			.then((response) => {
 				console.log(response);
+				this.props.setNotes(response.data);
 				this.setState({ notes: response.data });
 			})
 			.catch((error) => {
-				console.log(error);
+				this.displayAlertError(error.message);
+				console.log(error.message);
 			});
 	}
 
@@ -95,6 +98,7 @@ class Tab2 extends Component {
 				this.setState({ refreshing: false });		
 			})
 			.catch((error) => {
+				this.displayAlertError(error.message);				
 				console.log(error);
 				this.setState({ refreshing: false });		
 			});
@@ -118,6 +122,13 @@ class Tab2 extends Component {
 			/>
 		);
 	}
+
+	displayAlertError(errorMessage) {
+		Alert.alert(
+			'Erreur',
+			errorMessage
+		)
+	};
 
 	render() {
 		return (
@@ -185,7 +196,8 @@ const styles = {
 const mapStateToProps = (state) => {
 	return {
 		userProfile: state.auth.userProfile,
-		settings: state.settings
+		settings: state.settings,
+		note: state.note		
 	}
 }
 
