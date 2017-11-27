@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Platform, View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
 import axios from 'axios';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
+import * as actions from '../redux/actions';
 
 import * as baseStyle from '../../styles';
 
@@ -156,5 +159,12 @@ const styles = {
 		marginTop: 15
 	}
 }
+
+const mapStateToProps = (state) => {
+	
+		return { 
+			note: state.note,
+		};
+	};
 	
 export default Note;
