@@ -1,0 +1,48 @@
+{
+	"id": "English",	
+    "welcome": "Hello",
+    "auth": {
+		"title": "Authentication",
+        "connectWith": "Connect with ",
+        "facebook": "Facebook",
+        "google": "Google",
+        "mail": "E-mail adress",
+		"connect": "Connect",
+		"register": "Register",		
+		"name": "Name",
+		"surname": "Surname",
+		"email": "Email address",
+		"password": "Password",
+		"confirmPassword": "Confirm password",
+		"alreadyAccount":"You already have an account?",
+		"noAccount": "You don't have an account?",
+		"or": "OR",
+		"account": "Account",
+		"logout": "Log out",
+		"delete": "Delete account"
+    },
+	"account": {
+		"title": "Account",
+		"logout": "Log out",
+		"delete": "Delete account",
+		"aboutToDelete": "You are about to definitely delete your account. This will delete all data related to this account. Would you like to continue?"
+	},
+    "settings": {
+        "title": "Settings",
+        "language": "Language"
+	},
+	"lang": {
+		"choose": "Please choose your language",
+        "validate": "Continue"
+	},
+	"tabs":{
+        "header": "Home"
+	},	
+    "tab1":{
+        "title": "Tab 1"
+	},
+	"tab2":{
+        "title": "Tab 2"
+    },
+	"error": "Error"
+}

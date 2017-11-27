@@ -1,0 +1,49 @@
+{
+	"id": "Français",	
+    "welcome": "Bonjour",
+    "auth": {
+		"title": "Authentification",
+        "connectWith": "Connexion avec ",
+        "facebook": "Facebook",
+        "google": "Google",
+        "mail": "adresse e-mail",
+		"connect": "Connexion",
+		"register": "Inscription",
+		"name": "Nom",
+		"surname": "Prénom",
+		"email": "Adresse email",
+		"password": "Mot de passe",
+		"confirmPassword": "Confirmation mot de passe",
+		"alreadyAccount":"Vous avez déjà un compte?",
+		"noAccount": "Vous n'avez pas de compte?",
+		"or": "OU",
+		"recentLogin": "Par mesure de sécurité, il est nécessaire d'être connecté depuis peu de temps pour supprimer un compte. Voulez-vous vous reconnecter pour supprimer le compte?"
+	},
+	"account": {
+		"title": "Compte",
+		"logout": "Déconnexion",
+		"delete": "Supprimer le compte",
+		"aboutToDelete": "Vous êtes sur le point de supprimer définitivement votre compte. Cela entraînera la suppression de toutes les données liées à ce compte. Souhaitez-vous continuer?"
+	},
+    "settings": {
+        "title": "Paramètres",
+        "language": "Langue"
+	},
+	"lang": {
+		"choose": "Choisissez votre langue",		
+        "validate": "Continuer"
+	},
+	"tabs":{
+        "header": "Accueil"
+	},
+    "tab1":{
+        "title": "Onglet 1"
+	},
+	"tab2":{
+        "title": "Onglet 2"
+	},
+	"warning": "Attention",
+	"error": "Erreur",
+	"cancel": "Annuler",
+	"ok": "Ok"
+}
